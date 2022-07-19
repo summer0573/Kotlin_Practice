@@ -5,7 +5,8 @@ fun main(){
 //    println(maxBy2(2, 5))
 //    checkNum(2, 98)
 //    forAndwhile()
-
+//    nullcheck()
+    ignoreNulls()
 }
 
 //4.조건식
@@ -108,6 +109,33 @@ fun forAndwhile(){
 
 fun nullcheck(){
     //NPE: NULL pointer Exception
-    var name : String = "jin"
+    var name : String = "hyun"
+
     var nullName : String? = null //? = null이 될수도 안될수도 있다는 뜻
+
+    var nameInUpperCase = name.toUpperCase()
+
+    var nullInUpperCase = nullName?.toUpperCase() //nullName이 null이 아니면 toUpperCase를 함
+    //null이면 null을 반환함
+
+    //? = null일 수 있음
+    val lastName : String? = "jin"
+    val fullName = name + " " + (lastName?: "No lastName") //괄호 있어야함!
+    println(fullName)
+
+    //!! = null이 아님
+
+}
+
+fun ignoreNulls(){
+    //!! = null이 아님
+    //null이 정말로 아닐때만 사용
+    //val mNotNull : String = str!! //null 절대 아님!!
+    //val upper = mNotNull.toUpperCase()
+
+    val email : String? = "s2113@e-mirim.hs.kr"
+    email?.let{ //email이 null이 아니면 실행한다.
+        //let은 리시버 객체를 람다식 내부로 옯겨서 실행하는 구분 (이해안감...)
+        println("my email is ${email}")
+    }
 }
