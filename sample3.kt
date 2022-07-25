@@ -16,14 +16,19 @@ open class Human (val name : String = "unknown"){
         println("Yummy")
     }
 
-    fun singASong(){
+    open fun singASong(){
         println("오늘 달이 좋구나~~")
     }
 }
 
 
 class Korea : Human() { //상속 부모 클래스에 open 예약어 필요
-
+    override fun singASong(){
+        //singASong이 open이 아니면 override 되지 않음(final이기 때문)
+        super.singASong() //Human의 singASond도 사용
+        println("저기 나팔 소리가 들린다!")
+        println("my name is ${name}")
+    }
 }
 
 fun main(){
