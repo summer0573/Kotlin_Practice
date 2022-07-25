@@ -1,14 +1,20 @@
 package com.example.practice1.junga.kotlinpractice
 
-class Human constructor(name : String){
-    val name = name
+class Human (val name : String = "unknown"){
+
+    init { //주생성자
+        println("New human had been born!")
+    }
+
     fun eatingFood() {
         println("Yummy")
     }
 }
 
 fun main(){
-    val human = Human("hyun jin")
+    val human = Human("Xion")
+
+    //val stranger = Human()
     human.eatingFood()
-    println("this human name is ${human.name}")
+    println("this human's name is ${human.name}")
 }
